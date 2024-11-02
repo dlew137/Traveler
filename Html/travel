@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traveler</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ada8a8;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .card-container {
+      position: relative;
+      width: 300px;
+      height: 400px;
+    }
+
+    .card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #a4b6e8;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+      opacity: 1;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .button {
+      background-color: #a7e8a1;
+      border: none;
+      color: rgb(15, 15, 15);
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .button:hover {
+      background-color: #2a8f25;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    <!-- Card elements will be populated here by JavaScript -->
+  </div>
+
+  <script>
+    const profiles = [
+      { name: "Do you prefer a tropical or chilly  climate", image: "https://cdn1.iconfinder.com/data/icons/cool-weather-designs-1/744/Thermometer_Weather_Icon-512.png", bio: "Hot or Cold" },
+    
+      { name: "Do you like water activties or land activites?", image: "https://th.bing.com/th/id/R.ac1bef4e3ab8772e9d47ff5fed9fa3bc?rik=%2bsQ7936r6XJdSw&riu=http%3a%2f%2fwww.jcda.net%2fwp-content%2fuploads%2f2015%2f08%2fadventure-park-3.jpg&ehk=xBz6wYX2JEzUaMuq3tp3OhkqOxj07O50k3OjfKjjENY%3d&risl=&pid=ImgRaw&r=0", bio: "Land or Water" },
+      
+      { name: "America", image: "https://th.bing.com/th/id/R.ac1bef4e3ab8772e9d47ff5fed9fa3bc?rik=%2bsQ7936r6XJdSw&riu=http%3a%2f%2fwww.jcda.net%2fwp-content%2fuploads%2f2015%2f08%2fadventure-park-3.jpg&ehk=xBz6wYX2JEzUaMuq3tp3OhkqOxj07O50k3OjfKjjENY%3d&risl=&pid=ImgRaw&r=0", bio: "Musician and traveler." },
+      { name: "China", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
+      {name: "Egypt", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
+      {name: "Australia", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
+      {name: "Italy", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
+  ];
+
+  const endCards = [
+  { name: "Hawaii", image: "https://via.placeholder.com/100", bio: "For YOU" },
+  ];
+
+      
+
+  function swipeLeft() {
+      const card = document.querySelector('.card');
+      card.style.transform = 'translateX(-300px)';
+      setTimeout(() => {
+        currentIndex++;
+        noCount++;
+        renderCard();
+      }, 300);
+    }
+
+    function swipeRight() {
+      const card = document.querySelector('.card');
+      card.style.transform = 'translateX(300px)';
+      setTimeout(() => {
+        currentIndex++;
+        yesCount++;
+        renderCard();
+      }, 300);
+    }
+
+  
+    let currentIndex = 0;
+    let yesCount = 0;
+    let noCount =0;
+    
+    const cardContainer = document.querySelector('.card-container');
+    
+
+    function createCard(profile) {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      
+      card.innerHTML = `
+        <img src="${profile.image}" alt="${profile.name}">
+        <h3>${profile.name}</h3>
+        <p>${profile.bio}</p>
+        <div class = "buttons">
+          <button class="button" onclick="swipeLeft()">Like</button>
+          <button class="button" onclick="swipeRight()">Nope</button>
+        </div> 
+      `;
+      
+      return card;
+    }
+
+    function renderCard() {
+      if (currentIndex < profiles.length) {
+        cardContainer.innerHTML = '';
+        const profile = profiles[currentIndex];
+        const card = createCard(profile);
+        cardContainer.appendChild(card);
+      } else {
+        cardContainer.innerHTML =  '';
+        if(yesCount > noCount) {
+
+            cardContainer.innerHTML = '';
+        const profile = profiles[currentIndex];
+        const card = createCard(profile);
+        cardContainer.appendChild(card);
+            // const proflies [
+            //  {name: "Hawaii is your desired destination", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
+            //  ];
+    
+            // cardContainer.innerHTML = `
+        // <div class="card">
+        //   <h3>Hawaii is the most suited destination for you!</h3>
+        //   <img src="https://via.placeholder.com/100" alt="Hawaii">
+        //   <p>Enjoy the tropical paradise!</p>
+        // </div>
+      `;
+         }else{
+            cardContainer.innerHTML.card= '<h3>. k bye </h3>'
+         }
+        }
+    }
+
+        
+
+
+    renderCard();
+  </script>
+</body>
+</html>
