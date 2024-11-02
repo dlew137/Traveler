@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,8 +17,8 @@
 
     .card-container {
       position: relative;
-      width: 300px;
-      height: 400px;
+      width: 600px;
+      height: 800px;
     }
 
     .card {
@@ -95,7 +95,7 @@
       card.style.transform = 'translateX(-300px)';
       setTimeout(() => {
         currentIndex++;
-        noCount++;
+        yesCount++;
         renderCard();
       }, 300);
     }
@@ -105,7 +105,7 @@
       card.style.transform = 'translateX(300px)';
       setTimeout(() => {
         currentIndex++;
-        yesCount++;
+        noCount++;
         renderCard();
       }, 300);
     }
@@ -118,8 +118,8 @@
         <h3>${profile.name}</h3>
         <p>${profile.bio}</p>
         <div class="buttons">
-          <button class="button" onclick="swipeLeft()">Nope</button>
-          <button class="button" onclick="swipeRight()">Like</button>
+          <button class="button" onclick="swipeLeft()">Like</button>
+          <button class="button" onclick="swipeRight()">Nope</button>
         </div>
       `;
       return card;
@@ -138,9 +138,18 @@
         if (yesCount > noCount) {
           cardContainer.innerHTML = `
             <div class="card">
-              <h3>Hawaii is the most suited destination for you!</h3>
+              <h3>Bali is the most suited destination for you!</h3>
               <img src="https://via.placeholder.com/100" alt="Hawaii">
               <p>Enjoy the tropical paradise!</p>
+            </div>
+          `;
+        }
+         else if (noCount > yesCount) {
+          cardContainer.innerHTML = `
+            <div class="card">
+              <h3> Antartica is the most suited destination for you!</h3>
+              <img src="https://via.placeholder.com/100" alt="Hawaii">
+              <p>Enjoy the cold!!</p>
             </div>
           `;
         } else {
