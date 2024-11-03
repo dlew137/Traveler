@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartPage</title>
+    <link rel="stylesheet" href="Traveler/main.css">
+    <style>
+       header{
+        text-align: center;
+       }
+       nav ul li {
+        display: inline;
+        margin: 0.15px;
+
+
+       }
+       </style>
+       </head>
+       <body>
+        <header>
+
+<button class="button1" onclick="window.location.href='Contact.html'">Contact Us</button>
+ </header>
+ 
+
+  <style>
+   body{
+    
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d0bed5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+
+        }
+        h1,h2{
+            margin: 50px;
+            text-align: center; 
+        }
+
+        .button {
+            background-color: #c666ef;
+            border: none;
+            align-items: center;
+            color: rgb(15, 15, 15);
+            padding: 30px 80px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size:xx-large;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background-color: #8589eb;
+        }
+
+        .button1 {
+            background-color: #b669d7;
+            border: none;
+            align-items: center;
+            color: rgb(15, 15, 15);
+            padding: 5px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background-color: #8589eb;
+        }
+        .button1:hover {
+            background-color: #8589eb;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Traveler!</h1>
+    <h2>Tell us your travel prefrences, and well give you you dream destination!</h2>
+    <button class="button" onclick="window.location.href='Index.html'">Click here to start</button>
+ </header>
+</body>
+</html>
+</style>
+</head>
+<body>
+    <a target ="" href="Index.html"></a>
+</body>
+</html>
+  
