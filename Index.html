@@ -19,8 +19,8 @@
 
     .card-container {
       position: relative;
-      width: 500px;
-      height: 700px;
+      width: 600px;
+      height: 800px;
     }
 
     .card {
@@ -76,7 +76,7 @@
       padding: 10px 20px;
       border-radius: 5px;
       margin-top: 800px;
-      margin-left: -5px;
+      margin-left: -10px;
       cursor: pointer;
       transition: background-color 0.2s;
     }
@@ -92,13 +92,12 @@
 
   <script>
     const profiles = [
-      { name: "Do you prefer a tropical or chilly climate?", image: "https://cdn1.iconfinder.com/data/icons/cool-weather-designs-1/744/Thermometer_Weather_Icon-512.png", bio: "Tropical or Chilly", likeButton: "Tropical", noButton: "Chilly" },
-      { name: "Do you like land activities or water activities?", image: "https://th.bing.com/th/id/OIP.-4UT-QgJh5l_94bjY7OKwwAAAA?rs=1&pid=ImgDetMain", bio: "Land or Water", likeButton: "Water", noButton: "Land" },
-      { name: "Would you prefer to stay in a resort of cabin", image: "https://media.istockphoto.com/vectors/cabin-vector-id477380387?k=6&m=477380387&s=612x612&w=0&h=wKG8JLMLzCu4sCKBItFWdjfcn8vi_hOfuF_2tEREa9g=", bio: "Resort or Cabin.", likeButton: "Resort", noButton: "Cabin" },
-      { name: "China", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
-      { name: "Egypt", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
-      { name: "Australia", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
-      { name: "Italy", image: "https://via.placeholder.com/100", bio: "Musician and traveler." }
+      { name: "Do you prefer a hot or cold climate?", image: "https://cdn1.iconfinder.com/data/icons/cool-weather-designs-1/744/Thermometer_Weather_Icon-512.png", bio: "Hot or Cold?", likeButton: "Hot", noButton: "Cold" },
+      { name: "Do you prefer safari or winter activites  ?", image: "https://th.bing.com/th/id/R.fd79cd46746e8886d9c64b934a35733b?rik=wnC2trAr3F43ig&pid=ImgRaw&r=0", bio: "Safari or Winter", likeButton: "Safari", noButton: "Winter" },
+      { name: "Would you prefer to stay in a resort or cabin", image: "https://media.istockphoto.com/vectors/cabin-vector-id477380387?k=6&m=477380387&s=612x612&w=0&h=wKG8JLMLzCu4sCKBItFWdjfcn8vi_hOfuF_2tEREa9g=", bio: "Resort or Cabin.", likeButton: "Resort", noButton: "Cabin" },
+      { name: "Are you looking for something affordable, or do you not have a budget?", image: "https://www.clipartbest.com/cliparts/jix/prb/jixprbxiE.jpeg", bio: "Affordable or No-budget.", likeButton: "Affordable", noButton: "No budget" },
+      { name: "Do you prefer to stay to yourself ot interact with the community", image: "https://clipground.com/images/group-conversation-clipart-20.png", bio: "Stay to yourself or interact?." ,likeButton: "Stay to yourself", noButton: "Interact" },
+      { name: "Do you prefer using your own vehicle, or guided tours", image: "https://clipartmag.com/images/taxi-cab-clipart-5.jpg", bio: "Own Vehicle or Guided Tours?" , likeButton: "Own Vehicle", noButton: "Tours" },
     ];
 
     let currentIndex = 0;
@@ -155,28 +154,28 @@
         if (yesCount > noCount) {
           cardContainer.innerHTML = `
             <div class="card">
-              <h3>Bali is the most suited destination for you!</h3>
-              <a href="https://www.getyourguide.com/-l347/?cmp=bing&ad_id=77859371967578&adgroup_id=1245747323357683&bid_match_type=bb&campaign_id=710116219&device=c&feed_item_id=&keyword=-l40960%2F&loc_interest_ms=142351&loc_physical_ms=51299&match_type=b&msclkid=0528602cbcbf1c63aa5c070ba8d7306f&network=o&partner_id=CD951&target_id=dat-2329658981071830%3Aloc-190&utm_adgroup=lc%3D40960%3Alovina%7Cfn%3Df1%7Cagt%3Ddsa&utm_campaign=dc%3D62%3Aid%7Clc%3D40960%3Alovina%7Cct%3Dcore%7Cln%3D29%3Aen%7Ctc%3Dus&utm_keyword=-l40960%2F&utm_medium=paid_search&utm_query=All+about+bali&utm_source=bing&visitor-id=DS9Z8R79OKSJTOZZNWHMOS81EJ73X59T&locale_autoredirect_optout=true&redirector=530612">Things to do in Bali</a>
-              <a href="https://www.lonelyplanet.com/articles/top-tips-for-visiting-bali">Things to know before going to Bali</a>
-              <img src="https://www.momondo.it/discover/wp-content/uploads/sites/276/2016/05/dest_indonesia_bali_nusa-penida_diamond-beach_gettyimages-1145042281_universal_within-usage-period_61475-1536x1050.jpg" alt="Bali">
-              <p>Enjoy the tropical paradise!</p>
+              <h3>Tanzania is the most suited destination for you!</h3>
+              <a href="https://theplanetd.com/things-to-do-in-tanzania/">Things to do in Tanzania</a>
+              <a href="https://www.lonelyplanet.com/articles/things-to-know-before-traveling-to-tanzania">Things to know before going to Tanzania</a>
+              <img src="https://th.bing.com/th/id/OIP.pkqOJIM8cLFQQRqE1hI9wgHaFB?rs=1&pid=ImgDetMain" alt="Tanzania">
+              <p>Enjoy the beautiful landscapes and wildlife!</p>
             </div>
           `;
         }
          else if (noCount > yesCount) {
           cardContainer.innerHTML = `
             <div class="card">
-              <h3> Antartica is the most suited destination for you!</h3>
-              <a href="="https://www.tripadvisor.com/Attractions-g12-Activities-Antarctica.html">Things to do in Antartica</a>
-              <a href="https://www.afar.com/magazine/11-things-i-wish-id-known-before-traveling-to-antarctica">Things to know before going to Antartica</a>
-              <img src="https://th.bing.com/th/id/OIP.m5fkgWYiEFmjRu-iPbgd9wAAAA?rs=1&pid=ImgDetMain" alt="Antartica">
-              <p>Enjoy the cold!!</p>
+              <h3> Finland is the most suited destination for you!</h3>
+              <a href="="<a href="="https://www.lonelyplanet.com/articles/things-to-know-before-traveling-to-finland">Things to do in Finland</">Things to do in Finland</a>
+              <a href="<a href="="https://www.lonelyplanet.com/articles/things-to-know-before-traveling-to-finland">Things to know before going to Finland a</a">Things to know before going to Finland</a>
+              <img src="https://th.bing.com/th/id/OIP.DuFj-1XXcktkPIyFhntqcgHaE8?rs=1&pid=ImgDetMain" alt="Finland">
+              <p>Enjoy the beautiful lakes and forests!!</p>
             </div>
           `;
         } else {
           cardContainer.innerHTML = `
             <div class="card">
-              <h3>Maybe traveling isn't for you right now. Goodbye!</h3>
+              <h3>It seems you don't know what you want, refresh to take the quiz!</h3>
             </div>
           `;
         }
