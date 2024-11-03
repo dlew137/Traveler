@@ -1,0 +1,27 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,
+   initial-scale=1.0">
+  <title> Traveler </title>
+  <style>
+body{
+  display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #8ea4dc;
+            font-family: Arial, sans-serif;
+            margin: 0;
+}
+          </style>
+          </head>
+<body>
+  <h1>Contact information</h1>
+  <h2>Personal Email: Wombleolivia@gmail.com </h2>
+  <h2>School Email: Owombl1@lsu.edu</h2>
+</script>
+</body>
+</html>
