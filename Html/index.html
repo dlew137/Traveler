@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tinder Swipe</title>
+  <title>Traveler</title>
   <style>
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f0f0f0;
+      background-color: rgb(5, 5, 5);
       font-family: Arial, sans-serif;
       margin: 0;
     }
 
     .card-container {
       position: relative;
-      width: 300px;
-      height: 400px;
+      width: 600px;
+      height: 800px;
     }
 
     .card {
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: #fff;
+      background-color: #a4b6e8;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       display: flex;
@@ -39,7 +39,6 @@
     .card img {
       width: 100px;
       height: 100px;
-      border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
     }
@@ -55,9 +54,9 @@
     }
 
     .button {
-      background-color: #ff5a5f;
+      background-color: #a7e8a1;
       border: none;
-      color: white;
+      color: rgb(15, 15, 15);
       padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
@@ -65,7 +64,7 @@
     }
 
     .button:hover {
-      background-color: #ff1a1a;
+      background-color: #2a8f25;
     }
   </style>
 </head>
@@ -76,52 +75,27 @@
 
   <script>
     const profiles = [
-      { name: "Dubai", image: "https://via.placeholder.com/100", bio: "Loves hiking and photography." },
-      { name: "Paris", image: "https://via.placeholder.com/100", bio: "Enjoys cooking and reading." },
+      { name: "Do you prefer a tropical or chilly climate?", image: "https://cdn1.iconfinder.com/data/icons/cool-weather-designs-1/744/Thermometer_Weather_Icon-512.png", bio: "Hot or Cold" },
+      { name: "Do you like water activities or land activities?", image: "https://via.placeholder.com/100", bio: "Land or Water" },
       { name: "America", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
       { name: "China", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
-      {name: "Egypt", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
-      {name: "Australia", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
-      {name: "Italy", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
+      { name: "Egypt", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
+      { name: "Australia", image: "https://via.placeholder.com/100", bio: "Musician and traveler." },
+      { name: "Italy", image: "https://via.placeholder.com/100", bio: "Musician and traveler." }
     ];
 
     let currentIndex = 0;
+    let yesCount = 0;
+    let noCount = 0;
     
     const cardContainer = document.querySelector('.card-container');
-
-    function createCard(profile) {
-      const card = document.createElement('div');
-      card.classList.add('card');
-      
-      card.innerHTML = `
-        <img src="${profile.image}" alt="${profile.name}">
-        <h3>${profile.name}</h3>
-        <p>${profile.bio}</p>
-        <div class="buttons">
-          <button class="button" onclick="swipeLeft()">Nope</button>
-          <button class="button" onclick="swipeRight()">Like</button>
-        </div>
-      `;
-      
-      return card;
-    }
-
-    function renderCard() {
-      if (currentIndex < profiles.length) {
-        cardContainer.innerHTML = '';
-        const profile = profiles[currentIndex];
-        const card = createCard(profile);
-        cardContainer.appendChild(card);
-      } else {
-        cardContainer.innerHTML = '<h3>No more profiles!</h3>';
-      }
-    }
-
+    
     function swipeLeft() {
       const card = document.querySelector('.card');
       card.style.transform = 'translateX(-300px)';
       setTimeout(() => {
         currentIndex++;
+        yesCount++;
         renderCard();
       }, 300);
     }
@@ -131,8 +105,61 @@
       card.style.transform = 'translateX(300px)';
       setTimeout(() => {
         currentIndex++;
+        noCount++;
         renderCard();
       }, 300);
+    }
+
+    function createCard(profile) {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.innerHTML = `
+        <img src="${profile.image}" alt="${profile.name}">
+        <h3>${profile.name}</h3>
+        <p>${profile.bio}</p>
+        <div class="buttons">
+          <button class="button" onclick="swipeLeft()">Yes</button>
+          <button class="button" onclick="swipeRight()">No</button>
+        </div>
+      `;
+      return card;
+    }
+
+    function renderCard() {
+      cardContainer.innerHTML = '';
+
+      if (currentIndex < profiles.length) {
+        // Display the current card
+        const profile = profiles[currentIndex];
+        const card = createCard(profile);
+        cardContainer.appendChild(card);
+      } else {
+        // Display the final message based on yesCount and noCount
+        if (yesCount > noCount) {
+          cardContainer.innerHTML = `
+            <div class="card">
+              <h3>Bali is the most suited destination for you!</h3>
+              <img src="https://via.placeholder.com/100" alt="Hawaii">
+              <p>Enjoy the tropical paradise!</p>
+            </div>
+          `;
+        }
+         else if (noCount > yesCount) {
+          cardContainer.innerHTML = `
+            <div class="card">
+              <h3> Antartica is the most suited destination for you!</h3>
+              <img src="https://via.placeholder.com/100" alt="Hawaii">
+              <p>Enjoy the cold!!</p>
+            </div>
+          `;
+        } else {
+          cardContainer.innerHTML = `
+            <div class="card">
+              <h3>Maybe traveling isn't for you right now. Goodbye!</h3>
+            </div>
+          `;
+        }
+      }
     }
 
     renderCard();
